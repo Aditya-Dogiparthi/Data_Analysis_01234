@@ -69,21 +69,6 @@ The Python pipeline is the default reproducible path and does not require a data
 
 The uploaded source package contains 17 operational source tables (including vendor telephony) plus the data dictionary. The profiling output records exact row counts, columns, null rates, full-row duplicates and date ranges. Most operational events span January through early August 2026.
 
-## GitHub publication
-
-Raw data is excluded by default because borrower/collections datasets can contain sensitive information, even when a challenge pack is synthetic. To publish:
-```powershell
-git init
-git add .
-git status
-git commit -m "Build collections intelligence investigation platform"
-git branch -M main
-git remote add origin https://github.com/<your-username>/collections-intelligence.git
-git push -u origin main
-```
-Before `git add`, inspect `git status` and ensure no `.env`, raw extracts, database dumps, or personal data are staged. The project code and documentation are GitHub-ready; raw data can be supplied separately by an authorized reviewer.
-
-
 ## Generated analytical outputs
 
 Key files after pipeline execution:
