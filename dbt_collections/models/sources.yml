@@ -1,0 +1,43 @@
+version: 2
+sources:
+  - name: collections_raw
+    schema: raw
+    tables:
+      - name: payments
+      - name: account_status_history
+      - name: accounts
+      - name: borrowers
+      - name: agents
+      - name: calls
+      - name: call_attempts
+      - name: call_dispositions
+      - name: daily_targeting
+      - name: campaigns
+      - name: agent_sessions
+      - name: whatsapp_events
+      - name: sms_events
+      - name: field_visits
+      - name: promises_to_pay
+      - name: vendor_telephony
+      - name: complaints
+models:
+  - name: stg_payments
+    columns:
+      - name: payment_id
+        tests: [not_null]
+  - name: golden_payment_events
+    columns:
+      - name: payment_id
+        tests: [not_null, unique]
+  - name: golden_successful_payments
+    columns:
+      - name: payment_id
+        tests: [not_null, unique]
+  - name: stg_account_status_history
+    columns:
+      - name: history_id
+        tests: [not_null]
+  - name: golden_call_events
+    columns:
+      - name: call_id
+        tests: [not_null, unique]

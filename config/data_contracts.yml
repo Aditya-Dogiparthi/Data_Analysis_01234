@@ -1,0 +1,83 @@
+version: 1
+contract_policy:
+  raw_immutable: true
+  timestamps: Preserve source strings and parse to timestamp-without-time-zone unless source contract supplies an explicit timezone/offset.
+  duplicate_policy: Exact full-row duplicates may be removed in derived layers; conflicting stable-key payloads are quarantined in full.
+  schema_policy: Additive nullable columns are accepted and recorded; missing required columns fail validation; breaking changes require a new schema_version.
+contracts:
+  accounts:
+    required: [account_id, borrower_id, loan_type, outstanding_amount, dpd, risk_segment, status, opened_at]
+    primary_key: account_id
+    grain: one current account snapshot row per account_id
+  borrowers:
+    required: [borrower_id, created_at, updated_at]
+    primary_key: borrower_id
+    grain: borrower version; current dimension resolved by latest updated_at
+    version_column: updated_at
+  agents:
+    required: [agent_id, employee_code, vendor_id, joined_at, updated_at]
+    primary_key: agent_id
+    grain: agent version; current dimension resolved by latest updated_at
+    version_column: updated_at
+  agent_sessions:
+    required: [session_id, agent_id, login_at, logout_at, timezone]
+    primary_key: session_id
+    event_time: login_at
+  campaigns:
+    required: [campaign_id, campaign_name, channel, strategy_version, start_at, end_at]
+    primary_key: campaign_id
+    event_time: start_at
+  daily_targeting:
+    required: [target_id, account_id, campaign_id, target_date, priority, recommended_channel, status]
+    primary_key: target_id
+    event_time: target_date
+  calls:
+    required: [call_id, account_id, event_at, agent_id, campaign_id, vendor_id, call_status, duration_sec]
+    primary_key: call_id
+    event_time: event_at
+  call_attempts:
+    required: [attempt_id, account_id, event_at, call_id, agent_id, attempt_no, attempt_status]
+    primary_key: attempt_id
+    event_time: event_at
+  call_dispositions:
+    required: [disposition_id, account_id, event_at, call_id, disposition_code, disposition_version]
+    primary_key: disposition_id
+    event_time: event_at
+  whatsapp_events:
+    required: [whatsapp_event_id, account_id, event_at, message_id, event_type, provider_id]
+    primary_key: whatsapp_event_id
+    event_time: event_at
+  sms_events:
+    required: [sms_event_id, account_id, event_at, message_id, event_type, provider_id]
+    primary_key: sms_event_id
+    event_time: event_at
+  field_visits:
+    required: [visit_id, account_id, event_at, agent_id, visit_type, outcome, scheduled_at]
+    primary_key: visit_id
+    event_time: event_at
+  promises_to_pay:
+    required: [ptp_id, account_id, event_at, promised_amount, promised_date, status]
+    primary_key: ptp_id
+    event_time: event_at
+  payments:
+    required: [payment_id, account_id, event_at, amount, payment_status, payment_reference]
+    primary_key: payment_id
+    event_time: event_at
+    allowed_statuses: [SUCCESS, FAILED, PENDING, REVERSED]
+    non_negative_amount_for_gross_success: true
+  vendor_telephony:
+    required: [vendor_id, vendor_name, timezone, status, schema_version]
+    primary_key: vendor_id
+  complaints:
+    required: [complaint_id, account_id, event_at, complaint_type, severity, status]
+    primary_key: complaint_id
+    event_time: event_at
+  account_status_history:
+    required: [history_id, account_id, event_at, recorded_at, status]
+    primary_key: history_id
+    event_time: event_at
+    recorded_time: recorded_at
+  data_dictionary:
+    required: [dataset, column, dtype]
+    primary_key: null
+    grain: one documented source column

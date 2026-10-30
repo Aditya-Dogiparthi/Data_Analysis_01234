@@ -1,0 +1,58 @@
+version: 1
+currency: INR
+metric_policy: Gross payment events are never labelled net recovery. Any rate requires an explicit, frozen denominator and point-in-time effective-dated attributes.
+metrics:
+  gross_successful_collections:
+    formula: SUM(amount) for conflict-free payment rows with normalized status SUCCESS and valid event timestamp.
+    unit: INR
+    status: COMPUTABLE
+    caveat: Gross cash event flow only. REVERSED is reported separately because original-payment linkage is not reliable.
+  net_settled_collections:
+    formula: Gross successful settled cash minus reversals matched to original payment IDs, chargebacks and refunds under a documented settlement policy.
+    status: NOT_COMPUTABLE
+    missing: Reversal-to-original transaction linkage and settlement state.
+  contact_rate:
+    formula: Distinct eligible accounts with at least one owner-approved verified-contact disposition / distinct eligible accounts attempted.
+    status: NOT_COMPUTABLE
+    missing: Versioned mapping of disposition codes to contact and verified-contact definitions.
+  rpc_rate:
+    formula: Distinct eligible accounts with a verified right-party contact / distinct eligible accounts attempted.
+    status: NOT_COMPUTABLE
+    missing: Authoritative RPC disposition mapping and validated borrower identity evidence.
+  ptp_rate:
+    formula: Distinct accounts with a valid PTP / distinct eligible accounts with verified RPC.
+    status: NOT_COMPUTABLE
+    missing: RPC mapping; PTP source records alone do not prove verified RPC.
+  ptp_kept_rate:
+    formula: Matured valid PTPs with a linked settled payment in the predeclared due-date grace window / matured valid PTPs.
+    status: NOT_COMPUTABLE
+    missing: Payments do not contain ptp_id; reversal linkage and grace-window policy are not specified.
+  recovery_rate:
+    formula: Net settled collections in period / frozen eligible outstanding exposure at period start.
+    status: NOT_COMPUTABLE
+    missing: Historical point-in-time balance/exposure and net-settlement linkage.
+  recovery_per_account:
+    formula: Net settled collections / distinct eligible accounts frozen at period start.
+    status: PARTIALLY_COMPUTABLE_PROXY_ONLY
+    proxy: Gross successful cash per observed-status account at month start.
+    caveat: Status coverage starts at 0% in January and rises to 85.62% in August; incomplete observed subpopulation is not full portfolio.
+  recovery_per_agent_hour:
+    formula: Net settled cash explicitly attributed to an agent / productive agent hours.
+    status: NOT_COMPUTABLE
+    missing: Payment-to-agent linkage and productive-time data. Session login duration is not productive time.
+  cost_per_rupee_recovered:
+    formula: Fully loaded incremental collection cost / incremental net settled INR.
+    status: NOT_COMPUTABLE
+    missing: Cost ledger, causal incremental recovery estimate, and net settlement linkage.
+  channel_conversion:
+    formula: Net settled cash from randomized/validly assigned channel / eligible accounts assigned or exposed under an explicit policy.
+    status: NOT_COMPUTABLE
+    missing: Payment-touch/campaign linkage and randomized or defensible assignment; raw channel events are activity only.
+  attempt_frequency:
+    formula: Number of call attempts per eligible account in a fixed observation window.
+    status: DESCRIPTIVE_ONLY
+    caveat: Attempt count can reflect selection and collector prioritization; it is not a causal dose-response effect.
+  technical_answer_share:
+    formula: Calls with technical call_status ANSWERED / calls with a valid call_status.
+    status: COMPUTABLE_TECHNICAL_DIAGNOSTIC_ONLY
+    caveat: Not contact rate or RPC; telephony disposition semantics are not mapped.

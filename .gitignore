@@ -1,0 +1,26 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+*.log
+.DS_Store
+Thumbs.db
+# Never commit raw borrower/collections extracts or local database files.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/golden/*
+!data/golden/.gitkeep
+data/quarantine/*
+!data/quarantine/.gitkeep
+*.db
+*.sqlite
+*.dump
+*.sql.gz
+dbt_collections/target/
+dbt_collections/dbt_packages/
+dbt_collections/logs/

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="820" viewBox="0 0 1500 820" role="img" aria-labelledby="title desc">
+<title id="title">Collections Intelligence production analytics architecture</title>
+<desc id="desc">Seven-stage analytics flow from immutable raw sources through staging, cleaning, golden entities, point-in-time features, governed metrics and a CEO dashboard, with cross-cutting contracts, lineage, monitoring and experiment controls.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fafc"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#1f2937" flood-opacity=".09"/></filter>
+</defs>
+<rect width="1500" height="820" fill="url(#bg)"/>
+<text x="64" y="62" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#53708d">COLLECTIONS INTELLIGENCE · PRODUCTION BLUEPRINT</text>
+<text x="64" y="108" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#14263a">Evidence-first analytics, from source event to CEO decision</text>
+<text x="64" y="142" font-family="Arial, sans-serif" font-size="16" fill="#61758a">Immutable inputs · bitemporal facts · versioned metrics · explicit quality gates</text>
+
+<!-- flow arrows -->
+<g stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow)">
+ <path d="M246 350 H278"/><path d="M448 350 H480"/><path d="M650 350 H682"/><path d="M852 350 H884"/><path d="M1054 350 H1086"/><path d="M1256 350 H1288"/>
+</g>
+
+<!-- seven stages -->
+<g filter="url(#shadow)" font-family="Arial, sans-serif">
+ <rect x="64" y="220" width="182" height="260" rx="16" fill="#17324d"/>
+ <text x="84" y="258" font-size="12" font-weight="700" letter-spacing="1.5" fill="#9ec5e8">01 · INPUT</text>
+ <text x="84" y="298" font-size="23" font-weight="700" fill="#ffffff">RAW</text>
+ <text x="84" y="335" font-size="14" fill="#e1eaf3">CSV · APIs · vendors</text>
+ <text x="84" y="365" font-size="13" fill="#c5d5e4">Append-only batches</text>
+ <text x="84" y="392" font-size="13" fill="#c5d5e4">Source event + ingest</text>
+ <text x="84" y="419" font-size="13" fill="#c5d5e4">Schema + file hashes</text>
+ <text x="84" y="455" font-size="11" font-weight="700" fill="#9ec5e8">NO IN-PLACE EDITS</text>
+
+ <rect x="278" y="220" width="170" height="260" rx="16" fill="#e2eef9" stroke="#b5cce2"/>
+ <text x="298" y="258" font-size="12" font-weight="700" letter-spacing="1.2" fill="#50708f">02 · TYPE</text>
+ <text x="298" y="298" font-size="22" font-weight="700" fill="#17324d">STAGING</text>
+ <text x="298" y="335" font-size="13" fill="#435e77">Source-aligned views</text>
+ <text x="298" y="365" font-size="13" fill="#435e77">Typed + normalized</text>
+ <text x="298" y="392" font-size="13" fill="#435e77">Schema versioned</text>
+ <text x="298" y="419" font-size="13" fill="#435e77">Event / recorded time</text>
+ <text x="298" y="455" font-size="11" font-weight="700" fill="#50708f">CONTRACT TESTS</text>
+
+ <rect x="480" y="220" width="170" height="260" rx="16" fill="#fff2d9" stroke="#ead1a0"/>
+ <text x="500" y="258" font-size="12" font-weight="700" letter-spacing="1.2" fill="#9a6b20">03 · TRUST</text>
+ <text x="500" y="298" font-size="22" font-weight="700" fill="#5e451c">CLEAN</text>
+ <text x="500" y="335" font-size="13" fill="#715a32">Exact-row dedup</text>
+ <text x="500" y="365" font-size="13" fill="#715a32">Key conflict quarantine</text>
+ <text x="500" y="392" font-size="13" fill="#715a32">Null / orphan checks</text>
+ <text x="500" y="419" font-size="13" fill="#715a32">No arbitrary survivor</text>
+ <text x="500" y="455" font-size="11" font-weight="700" fill="#9a6b20">REJECT + REASON</text>
+
+ <rect x="682" y="220" width="170" height="260" rx="16" fill="#e2f2ec" stroke="#b4d8c8"/>
+ <text x="702" y="258" font-size="12" font-weight="700" letter-spacing="1.2" fill="#39745e">04 · ENTITY</text>
+ <text x="702" y="298" font-size="22" font-weight="700" fill="#1c5541">GOLDEN</text>
+ <text x="702" y="335" font-size="13" fill="#376b59">Account / borrower</text>
+ <text x="702" y="365" font-size="13" fill="#376b59">Agent / campaign</text>
+ <text x="702" y="392" font-size="13" fill="#376b59">Payment / interaction</text>
+ <text x="702" y="419" font-size="13" fill="#376b59">Status history facts</text>
+ <text x="702" y="455" font-size="11" font-weight="700" fill="#39745e">STABLE GRAIN + KEYS</text>
+
+ <rect x="884" y="220" width="170" height="260" rx="16" fill="#e9e7fa" stroke="#c9c5e9"/>
+ <text x="904" y="258" font-size="12" font-weight="700" letter-spacing="1.2" fill="#625a9a">05 · CONTEXT</text>
+ <text x="904" y="298" font-size="22" font-weight="700" fill="#37336c">FEATURE</text>
+ <text x="904" y="335" font-size="13" fill="#514d83">Account × month</text>
+ <text x="904" y="365" font-size="13" fill="#514d83">Frozen eligibility</text>
+ <text x="904" y="392" font-size="13" fill="#514d83">Point-in-time DPD</text>
+ <text x="904" y="419" font-size="13" fill="#514d83">Experiment assignment</text>
+ <text x="904" y="455" font-size="11" font-weight="700" fill="#625a9a">NO FUTURE LEAKAGE</text>
+
+ <rect x="1086" y="220" width="170" height="260" rx="16" fill="#f8e7eb" stroke="#e7c4cd"/>
+ <text x="1106" y="258" font-size="12" font-weight="700" letter-spacing="1.2" fill="#9c5368">06 · GOVERN</text>
+ <text x="1106" y="298" font-size="22" font-weight="700" fill="#6f3145">METRICS</text>
+ <text x="1106" y="335" font-size="13" fill="#794c5b">Versioned KPI contract</text>
+ <text x="1106" y="365" font-size="13" fill="#794c5b">Numerator / denominator</text>
+ <text x="1106" y="392" font-size="13" fill="#794c5b">Gross vs net cash</text>
+ <text x="1106" y="419" font-size="13" fill="#794c5b">Release gates</text>
+ <text x="1106" y="455" font-size="11" font-weight="700" fill="#9c5368">UNAVAILABLE ≠ ZERO</text>
+
+ <rect x="1288" y="220" width="148" height="260" rx="16" fill="#17324d"/>
+ <text x="1308" y="258" font-size="12" font-weight="700" letter-spacing="1.2" fill="#9ec5e8">07 · DECIDE</text>
+ <text x="1308" y="298" font-size="21" font-weight="700" fill="#ffffff">DASHBOARD</text>
+ <text x="1308" y="335" font-size="13" fill="#e1eaf3">CEO scorecard</text>
+ <text x="1308" y="365" font-size="13" fill="#c5d5e4">Coverage + confidence</text>
+ <text x="1308" y="392" font-size="13" fill="#c5d5e4">Drill to lineage</text>
+ <text x="1308" y="419" font-size="13" fill="#c5d5e4">Decision + guardrails</text>
+ <text x="1308" y="455" font-size="11" font-weight="700" fill="#9ec5e8">60-SECOND VIEW</text>
+</g>
+
+<!-- governance bar -->
+<rect x="64" y="545" width="1372" height="180" rx="18" fill="#ffffff" stroke="#d9e2ec" filter="url(#shadow)"/>
+<text x="92" y="586" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.4" fill="#48627b">CROSS-CUTTING CONTROL PLANE</text>
+<g font-family="Arial, sans-serif">
+ <g transform="translate(92 615)">
+  <circle cx="12" cy="12" r="10" fill="#2d7d78"/><text x="34" y="17" font-size="16" font-weight="700" fill="#243b53">Data contracts</text>
+  <text x="34" y="43" font-size="12" fill="#64788d">Keys · schema versions · allowed states</text>
+ </g>
+ <g transform="translate(420 615)">
+  <circle cx="12" cy="12" r="10" fill="#c28b30"/><text x="34" y="17" font-size="16" font-weight="700" fill="#243b53">Quality + monitoring</text>
+  <text x="34" y="43" font-size="12" fill="#64788d">Freshness · conflicts · anomalies · reconciliations</text>
+ </g>
+ <g transform="translate(835 615)">
+  <circle cx="12" cy="12" r="10" fill="#6b64a9"/><text x="34" y="17" font-size="16" font-weight="700" fill="#243b53">Lineage + backfills</text>
+  <text x="34" y="43" font-size="12" fill="#64788d">Run ID · hashes · watermarks · restatement log</text>
+ </g>
+ <g transform="translate(1190 615)">
+  <circle cx="12" cy="12" r="10" fill="#9a5368"/><text x="34" y="17" font-size="16" font-weight="700" fill="#243b53">Experiment governance</text>
+  <text x="34" y="43" font-size="12" fill="#64788d">Assignment · ITT · guardrails</text>
+ </g>
+</g>
+<text x="64" y="780" font-family="Arial, sans-serif" font-size="12" fill="#71849a">Production principle: no contact, RPC, recovery-rate, conversion, productivity or ROI metric is published until its mapping, denominator, linkage and cost contracts pass.</text>
+</svg>

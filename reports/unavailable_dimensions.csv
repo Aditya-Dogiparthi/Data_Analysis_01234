@@ -1,0 +1,8 @@
+dimension_or_metric,status,evidence,required_additional_data
+client,UNAVAILABLE,No client_id/client_name column in any supplied source,Client master + effective-dated account-client bridge
+language,UNAVAILABLE,No language/preferred_language column in any supplied source,Effective-dated borrower language preference
+borrower_segment,PARTIAL_PROXY_ONLY,"Current account risk_segment exists, but no borrower_segment or effective-dated borrower segmentation history",Effective-dated borrower segment history linked to account-month
+dialing_mode,UNAVAILABLE,No human/predictive/progressive/IVR/agentic mode column,Call/campaign dialer_mode and vendor event mode
+historical_exposure,UNAVAILABLE,No point-in-time balance/exposure in status history,Daily or month-start balance snapshots
+channel_cost,UNAVAILABLE,No channel/vendor/agent cost ledger,Fully loaded cost fact with allocation rules
+payment_touch_link,UNAVAILABLE,No touch/campaign/agent/PTP key in payment events,Assignment/touch IDs plus payment settlement linkage

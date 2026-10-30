@@ -1,0 +1,7 @@
+investment_option,minimum_evidence_required,recommended_pilot,roi_status
+Better telephony infrastructure,"Vendor connect/RPC lift, uptime, cost/minute",Stepped-wedge vendor/region rollout,Not estimable
+More collection agents,"Productive agent-hours, marginal recovery/hour, loaded employment cost",Matched team capacity pilot,Not estimable
+AI voice automation,"Verified RPC, incremental net cash, complaints, escalations, cost/call",Randomized account-level holdout,Not estimable
+Better borrower targeting,"Random assignment, frozen eligibility, incremental net cash/account",Stratified randomized controlled trial,Best pilot candidate; ROI unproven
+WhatsApp/digital engagement,"Delivery/read/payment linkage, opt-outs, complaints, cost/send",Randomized channel encouragement test,Not estimable
+Field operations,"Visit costs, incremental payments, safety/complaint metrics",Randomized geographic/account pilot,Not estimable

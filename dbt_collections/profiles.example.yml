@@ -1,0 +1,12 @@
+collections_intelligence:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5433
+      user: collections_admin
+      password: change_me
+      dbname: collections
+      schema: analytics
+      threads: 4

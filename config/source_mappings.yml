@@ -1,0 +1,20 @@
+# Source mapping is explicit; extend aliases only after inspecting the actual source.
+sources:
+  accounts: {file: accounts.csv, primary_key: account_id, event_time: opened_at}
+  borrowers: {file: borrowers.csv, primary_key: borrower_id, event_time: created_at}
+  agents: {file: agents.csv, primary_key: agent_id, event_time: joined_at}
+  payments: {file: payments.csv, primary_key: payment_id, event_time: event_at}
+  calls: {file: calls.csv, primary_key: call_id, event_time: event_at}
+  call_attempts: {file: call_attempts.csv, primary_key: attempt_id, event_time: event_at}
+  call_dispositions: {file: call_dispositions.csv, primary_key: disposition_id, event_time: event_at}
+  promises_to_pay: {file: promises_to_pay.csv, primary_key: ptp_id, event_time: event_at}
+  daily_targeting: {file: daily_targeting.csv, primary_key: target_id, event_time: target_date}
+  whatsapp_events: {file: whatsapp_events.csv, primary_key: whatsapp_event_id, event_time: event_at}
+  sms_events: {file: sms_events.csv, primary_key: sms_event_id, event_time: event_at}
+  field_visits: {file: field_visits.csv, primary_key: visit_id, event_time: event_at}
+  agent_sessions: {file: agent_sessions.csv, primary_key: session_id, event_time: login_at}
+  campaigns: {file: campaigns.csv, primary_key: campaign_id, event_time: start_at}
+  account_status_history: {file: account_status_history.csv, primary_key: history_id, event_time: event_at}
+  complaints: {file: complaints.csv, primary_key: complaint_id, event_time: event_at}
+  vendor_telephony: {file: vendor_telephony.csv, primary_key: vendor_id}
+  data_dictionary: {file: data_dictionary.csv}
